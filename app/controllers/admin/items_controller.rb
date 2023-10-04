@@ -6,6 +6,7 @@ class Admin::ItemsController < ApplicationController
   
   def show
     @item = Item.find(params[:id])
+    
   end
   
   def edit
@@ -22,6 +23,10 @@ class Admin::ItemsController < ApplicationController
   
   def update
     @item = Item.find(params[:id])
+  end
+
+  def add_tax_price
+    (self.price * 1.08).round
   end
 
   private
