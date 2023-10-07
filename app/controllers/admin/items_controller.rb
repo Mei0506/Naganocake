@@ -1,12 +1,11 @@
 class Admin::ItemsController < ApplicationController
   
   def new
-    @items = Item.new
+    @item = Item.new
   end
   
   def show
     @item = Item.find(params[:id])
-    
   end
   
   def edit
@@ -19,6 +18,13 @@ class Admin::ItemsController < ApplicationController
   
   def create
     @item = Item.new(item_params)
+    if @item.save
+      flash[:notice] = "商品の新規登録に成功しました。"
+      redirect_to admin_items_path
+    else
+      flash.now[:notice] = "商品の新規登録に失敗しました。"
+      render :new
+    end
   end
   
   def update

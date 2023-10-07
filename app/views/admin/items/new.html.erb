@@ -3,7 +3,7 @@
   <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
    <h3>商品新規登録</h3>
 
-   <%= form_with model: @item, url: new_admin_item_path do |f| %>
+   <%= form_with model: @item, url: '/admin/items', method: :post do |f| %>
 
     <div>
      <%= f.label :image, "商品画像" %>
@@ -23,6 +23,14 @@
     <div>
      <%= f.label :price, "税抜価格" %>
      <%= f.text_field :price, autofocus: true, class:"form-control", placeholder: "1000" %>円<br>
+    </div>
+
+    <div>
+     <%= f.radio_button :is_selling, "true" %>
+     <%= f.label :is_selling_true, "販売中" %>
+     
+     <%= f.radio_button :is_selling, "false" %>
+     <%= f.label :is_selling_false, "sold out" %>
     </div>
 
     <div>
