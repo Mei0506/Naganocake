@@ -9,10 +9,11 @@ devise_for :customers,skip: [:passwords], controllers: {
 root to: "public/homes#top"
 get 'about', to: 'public/homes#about', as: :about
 
-namespace :customers do
- get 'mypage' => 'public/custmers#show'
- get 'infomation/edit' => 'public/custmers#edit'
- get 'confirm/withdraw' => 'public/custmers#withdraw'
+ scope module: :public do
+ get 'customers/mypage' => 'customers#show'
+ get 'customers/infomation/edit' => 'customers#edit'
+ get 'customers/confirm/withdraw' => 'customers#withdraw'
+ resources :items, only: [:show, :index]
 end
 
 

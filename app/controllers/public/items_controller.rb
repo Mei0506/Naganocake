@@ -1,19 +1,10 @@
 class Public::ItemsController < ApplicationController
   def index
-  end
-
-  def new
-  end
-
-  def create
+    @items = Item.all.page(params[:page]).per(10)
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
-  def edit
-  end
-  
-  def update
-  end
 end

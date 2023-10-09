@@ -1,3 +1,54 @@
 <div class="container">
  <div class="row">
-  <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+  <div class="col-xs-10 col-xs-offset-1">
+   <%= form_with model: @item do |f| %>
+   <div class="col-xs-5">
+    <h2>商品編集</h2>
+   </div>
+   
+   <div class="col-xs-5 col-xs-offset-2">
+    <table>
+     <tbody>
+      <tr>
+      <th>商品画像</th>
+       <th><%= f.file_field :image, accept: "Image/*" %></th>
+      </tr>
+
+      <tr>
+       <th>商品名</th>
+       <th><%= f.text_field :name, autofocus: true, id:"inputName", class:"form-control" %></th>
+      </tr>
+
+      <tr>
+       <th>商品説明</th>
+       <th><%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", class:"form-control" %></th>
+      </tr>
+
+      <tr>
+       <th>税抜価格</th>
+       <th><%= f.text_field :price, autofocus: true, id:"inputPrice", class:"form-control" %></th>
+      </tr>
+
+      <tr>
+       <th>販売ステータス</th>
+       <div>
+        <%= f.radio_button :is_selling, "true" %>
+        <%= f.label :is_selling_true, "販売中" %>
+
+        <%= f.radio_button :is_selling, "false" %>
+        <%= f.label :is_selling_false, "販売停止中" %>
+       </div>
+      </tr>
+
+     </tbody>
+    </table>
+   </div>
+
+   <div>
+    <%= f.submit'変更を保存', class: "btn btn-success" %>
+   </div>
+   <% end %>
+
+  </div>
+ </div>
+</div>

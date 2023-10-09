@@ -28,11 +28,9 @@ class Admin::ItemsController < ApplicationController
   end
   
   def update
-    @item = Item.find(params[:id])
-  end
-
-  def add_tax_price
-    (self.price * 1.08).round
+    item = Item.find(params[:id])
+    item.update(item_params)
+    redirect_to item_path(item.id)
   end
 
   private
