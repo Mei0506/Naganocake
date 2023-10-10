@@ -1,0 +1,19 @@
+<div class="container">
+ <div class="row">
+  <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+   <h4>商品一覧（全<%= @items_all.count %>件）</h4>
+   <div>
+    <% @items.each do |item| %>
+    <div>
+     <%= link_to item_path(item.id) do %>
+      <%= image_tag items.image(80,150) %><br>
+     <% end %>
+     <%= item.name %>
+     ¥<%= item.add_tax_price.to_s(:delimited, delimiter: ',') %>
+    <% end %>
+    <%= paginate @items %>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
