@@ -1,7 +1,7 @@
 <div class="container">
  <div class="row">
   <div class="col-xs-10 col-xs-offset-1">
-   <%= form_with model: @item do |f| %>
+   <%= form_with model: @item, url: admin_item_path do |f| %>
    <div class="col-xs-5">
     <h2>商品編集</h2>
    </div>
@@ -31,13 +31,13 @@
 
       <tr>
        <th>販売ステータス</th>
-       <div>
+       <th>
         <%= f.radio_button :is_selling, "true" %>
         <%= f.label :is_selling_true, "販売中" %>
 
         <%= f.radio_button :is_selling, "false" %>
         <%= f.label :is_selling_false, "販売停止中" %>
-       </div>
+       </th>
       </tr>
 
      </tbody>

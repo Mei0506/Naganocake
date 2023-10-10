@@ -2,7 +2,7 @@
   <div class="row">
    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
     <h3>商品新規登録</h3>
-     <%= form_with model: @item, url: new_admin_item_path do |f| %>
+     <%= form_with model: @item, url: admin_items_path do |f| %>
 
      <div>
       <%= f.label :image, "商品画像" %>
@@ -10,7 +10,7 @@
      </div>
 
      <div>
-      <%= f.label :name, "商品名" %>　
+      <%= f.label :name, "商品名" %>
       <%= f.text_field :name, autofocus: true, class:"form-control", placeholder: "商品名" %><br>
      </div>
 
@@ -33,7 +33,7 @@
      </div>
 
      <div>
-     <%= f.submit "新規登録" ,class: "btn btn-success" %>
+     <%= f.submit "新規登録" ,class: "btn btn-sm btn-success" %>
      </div>
      
     <% end %>
