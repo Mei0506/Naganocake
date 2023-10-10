@@ -12,8 +12,11 @@ get 'about', to: 'public/homes#about', as: :about
  scope module: :public do
  get 'customers/mypage' => 'customers#show'
  get 'customers/infomation/edit' => 'customers#edit'
- get 'customers/confirm/withdraw' => 'customers#withdraw'
+ get 'customers/confirm/withdraw' => 'customers#confirm_withdraw'
+ patch 'customers/withdraw' => 'customers#withdraw'
  resources :items, only: [:show, :index]
+ resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
+ resources :orders, only: [:index, :show, :new, :confirm, :complete, :create]
 end
 
 

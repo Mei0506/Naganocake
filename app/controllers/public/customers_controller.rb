@@ -22,12 +22,11 @@ class Public::CustomersController < ApplicationController
   def confirm_withdraw
   end
 
-
   def withdraw
-     @customer = Customer.find(parms[:id])
+     @customer = current_customer
      @customer.update(is_deleted: true)
      reset_session
-     flash[:notice] = "ご利用ありがとうございました。"
+     flash[:notice] = "退会手続きが完了しました。またのご利用をお待ちしております。"
      redirect_to root_path
   end
 

@@ -41,7 +41,8 @@ protected
   # 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
   if @customer.valid_password?(params[:customer][:password]) && (@customer.is_deleted == false)
   # 【処理内容3】 is_deletedの値がtrueだった場合サインアップ画面に遷移させる
-  flash[:notice] = "退会済みです。再登録後にご利用ください。"
+     flash[:notice] = "退会済みです。再登録後にご利用ください。"
+     redirect_to new_customer_registration_path
   # 【処理内容3】 is_deletedの値がfalseだった場合createアクションを実行させる
   else
      flash[:notice] = "項目を入力してください"
