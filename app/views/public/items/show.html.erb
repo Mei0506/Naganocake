@@ -1,0 +1,24 @@
+<div class="container">
+ <div class="row">
+  <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+
+   <%= image_tag @item.image, size: "300x200" %>
+   <table>
+    <tbody>
+     <tr>
+      <td><h3><%= @item.name %></h3></td>
+     </tr>
+
+     <tr>
+      <td><%= @item.introduction %></td>
+     </tr>
+
+     <tr>
+      <td><h3>￥<%= @item.add_tax_price.to_s(:delimited) %></h3><h5>（税込）</h5></td>
+     </tr>
+    </tbody>
+   </table>
+
+  </div>
+ </div>
+</div>

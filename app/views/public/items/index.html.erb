@@ -6,7 +6,7 @@
     <% @items.each do |item| %>
     <div>
      <%= link_to item_path(item.id) do %>
-      <%= image_tag items.image(80,150) %><br>
+      <%= image_tag item.image, size: "300x200" %><br>
      <% end %>
      <%= item.name %>
      ¥<%= item.add_tax_price.to_s(:delimited, delimiter: ',') %>
